@@ -33,6 +33,13 @@ if (!is_null($events['events'])) {
 						'text' => 'ออกไปมองท้องฟ้าดูจร้า'
 					];
 					break;
+				case 'เวลา' :
+					// Build message to reply back
+					$messages = [
+						'type' => 'text',
+						'text' => date('Y-m-d H:i:s')
+					];
+					break;
 				case 'บาย' :
 					// Build message to reply back
 					$messages = [
