@@ -9,8 +9,8 @@ use LINE\LINEBot\Util\DummyHttpClient;
 
 require_once('corebot.php');
 
-$channelAccessToken = '<your channel access token>';
-$channelSecret = '<your channel secret>';
+$channelAccessToken = 'e1MrLtknhZ66lKs5h1DRAphwwyg9ra+oOTA0wTMx4J1h19cD1yE/b9OKsHzK9qiRJQd8JT0/HBOJ+ZfR6yhTQalvcAr7jvbiMsfSI0CvFUytlY8GceZQtwkLsGiZ+OWy9omqCKYPKgq68vKEPB6axgdB04t89/1O/w1cDnyilFU=';
+$channelSecret = '01499f7264759f7ab07bb96a2eb63279';
 
 $client = new corebot($channelAccessToken, $channelSecret);
 foreach ($client->parseEvents() as $event) {
