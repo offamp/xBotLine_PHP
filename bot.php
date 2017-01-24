@@ -84,7 +84,7 @@ if (!is_null($events['events'])) {
 						   
 						   $point = $client->GetPointByCode($params);
 						
-							echo $point->GetPointByCodeResult;
+							//echo $point->GetPointByCodeResult;
 
 							$messages = [
 								'type' => 'text',
