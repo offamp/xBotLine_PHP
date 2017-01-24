@@ -63,7 +63,7 @@ if (!is_null($events['events'])) {
 						}
 						else
 						{
-							$client = new SoapClient("http://122.155.180.88:9888/Service1.svc?wsdl",
+							$client = new SoapClient("http://122.155.180.88:8080/service1.svc?wsdl",
 								array(
 								  "trace"      => 1,		// enable trace to view what is happening
 								  "exceptions" => 0,		// disable exceptions
@@ -71,7 +71,7 @@ if (!is_null($events['events'])) {
 							  );
 
 							$params = array(
-									   'value' => "S0000018",
+									   'value' => $texts[1],
 									   'key' => "f1936efff69e4a7eac64df55f6636ade"
 							);
 
