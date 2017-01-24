@@ -57,7 +57,7 @@ if (!is_null($events['events'])) {
 						{
 							$messages = [
 								'type' => 'text',
-								'text' => 'ไม่พบข้อมูลลูกค้า'
+								'text' => 'ไม่พบข้อมูลลูกค้า.'
 							];						
 							break;
 						}
@@ -98,7 +98,7 @@ if (!is_null($events['events'])) {
 								
 					$messages = [
 						'type' => 'text',
-						'text' => 'ไม่พบข้อมูลลูกค้า'
+						'text' => 'ไม่พบข้อมูลลูกค้า..'
 					];
 					break;					
 				default:
