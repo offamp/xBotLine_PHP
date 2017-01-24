@@ -63,6 +63,8 @@ if (!is_null($events['events'])) {
 						}
 						else
 						{
+						    try {
+								
 							$client = new SoapClient("http://122.155.180.88:8080/service1.svc?wsdl",
 								array(
 								  "trace"      => 1,		// enable trace to view what is happening
@@ -92,8 +94,15 @@ if (!is_null($events['events'])) {
 							];						
 							break;				   
 							
-							
-						}
+						} catch (Exception $e) {
+						        //echo 'Caught exception: ',  $e->getMessage(), "\n";
+							$messages = [
+								'type' => 'text',
+								'text' => $e->getMessage()
+							];						
+							break;								    
+						}	
+					     }
 					}
 								
 					$messages = [
