@@ -51,7 +51,7 @@ if (!is_null($events['events'])) {
 					break;
 				case 'ลูกค้า' :
 					// Build message to reply back
-					if(count($texts) > 2)
+					if(count($texts) >= 2)
 					{
 						if($texts[1] == '')
 						{
