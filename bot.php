@@ -73,7 +73,7 @@ if (!is_null($events['events'])) {
 							  );
 
 							$params = array(
-									   'value' => $texts[1],
+									   'value' => "0000",
 									   'key' => "f1936efff69e4a7eac64df55f6636ade"
 							);
 
