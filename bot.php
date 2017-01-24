@@ -1,12 +1,11 @@
 <?php
 $channelAccessToken = 'e1MrLtknhZ66lKs5h1DRAphwwyg9ra+oOTA0wTMx4J1h19cD1yE/b9OKsHzK9qiRJQd8JT0/HBOJ+ZfR6yhTQalvcAr7jvbiMsfSI0CvFUytlY8GceZQtwkLsGiZ+OWy9omqCKYPKgq68vKEPB6axgdB04t89/1O/w1cDnyilFU=';
-
 date_default_timezone_set("Asia/Bangkok");
-
 //$access_token = '';
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
+
 $events = json_decode($content, true);
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
@@ -16,10 +15,11 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			$texts = explode(" ", $text);
 			
 			$messages = '';
-			$codi = 1;
-			switch ( $text )
+			$codi = 0;
+			switch ( $texts[0] )
 			{
 				case 'สวัสดี' :
 					// Build message to reply back
@@ -49,6 +49,58 @@ if (!is_null($events['events'])) {
 						'text' => 'บายจร้า เจอกันใหม่ ^^'
 					];
 					break;
+				case 'ลูกค้า' :
+					// Build message to reply back
+					if(count($texts) > 2)
+					{
+						if($texts[1] == '')
+						{
+							$messages = [
+								'type' => 'text',
+								'text' => 'ไม่พบข้อมูลลูกค้า'
+							];						
+							break;
+						}
+						else
+						{
+							$client = new SoapClient("http://122.155.180.88:9888/Service1.svc?wsdl",
+								array(
+								  "trace"      => 1,		// enable trace to view what is happening
+								  "exceptions" => 0,		// disable exceptions
+								  "cache_wsdl" => 0) 		// disable any caching on the wsdl, encase you alter the wsdl server
+							  );
+
+							$params = array(
+									   'value' => "S0000018",
+									   'key' => "f1936efff69e4a7eac64df55f6636ade"
+							);
+
+							//$data = $client->GetCustomerByCustomerCode($params);
+							
+							//$point = $client->GetCstPointByCustomerCode($params);
+
+						   //print_r($point);
+						   //echo $data;
+						   
+						   $point = $client->GetPointByCode($params);
+						
+							echo $point->GetPointByCodeResult;
+
+							$messages = [
+								'type' => 'text',
+								'text' => $point->GetPointByCodeResult
+							];						
+							break;				   
+							
+							
+						}
+					}
+								
+					$messages = [
+						'type' => 'text',
+						'text' => 'ไม่พบข้อมูลลูกค้า'
+					];
+					break;					
 				default:
 					$codi = 0;
 					break;				
@@ -85,3 +137,4 @@ if (!is_null($events['events'])) {
 	}
 }
 echo "OK";
+?>
