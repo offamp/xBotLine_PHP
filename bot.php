@@ -68,7 +68,7 @@ if (!is_null($events['events'])) {
 							$client = new SoapClient("http://122.155.180.88:8080/service1.svc?wsdl",
 								array(
 								  "trace"      => 1,		// enable trace to view what is happening
-								  "exceptions" => 0,		// disable exceptions
+								  "exceptions" => 1,		// disable exceptions
 								  "cache_wsdl" => 0) 		// disable any caching on the wsdl, encase you alter the wsdl server
 							  );
 
@@ -81,10 +81,10 @@ if (!is_null($events['events'])) {
 							
 							//$point = $client->GetCstPointByCustomerCode($params);
 
-						   //print_r($point);
-						   //echo $data;
-						   
-						   $point = $client->GetPointByCode($params);
+							//print_r($point);
+							//echo $data;
+
+							$point = $client->GetPointByCode($params);
 						
 							//echo $point->GetPointByCodeResult;
 
