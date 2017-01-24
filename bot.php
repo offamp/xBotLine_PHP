@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 			$texts = explode(" ", $text);
 			
 			$messages = '';
-			$codi = 0;
+			$codi = 1;
 			switch ( $texts[0] )
 			{
 				case 'สวัสดี' :
