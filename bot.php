@@ -51,6 +51,13 @@ if (!is_null($events['events'])) {
 					break;
 				case 'ลูกค้า' :
 					// Build message to reply back
+					$messages = [
+						'type' => 'text',
+						'text' => 'รอก่อนนะ กำลังเขียนโปรแกรม'
+					];
+					break;
+					
+					
 					if(count($texts) >= 2)
 					{
 						if($texts[1] == '')
@@ -116,7 +123,7 @@ if (!is_null($events['events'])) {
 					// Build message to reply back
 					$messages = [
 						'type' => 'text',
-						'text' => 'พิมพ์อะไรมา? ไม่เข้าใจเลย'
+						'text' => 'พิมพ์อะไรมา ไม่เข้าใจเลย'
 					];
 					break;					
 			}
