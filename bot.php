@@ -51,11 +51,11 @@ if (!is_null($events['events'])) {
 					break;
 				case 'ลูกค้า' :
 					// Build message to reply back
-					$messages = [
-						'type' => 'text',
-						'text' => 'รอก่อนนะ กำลังเขียนโปรแกรม'
-					];
-					break;
+					//$messages = [
+					//	'type' => 'text',
+					//	'text' => 'รอก่อนนะ กำลังเขียนโปรแกรม'
+					//];
+					//break;
 					
 					
 					if(count($texts) >= 2)
@@ -72,7 +72,7 @@ if (!is_null($events['events'])) {
 						{
 						    try {
 								
-							$client = new SoapClient("http://122.155.180.88:8080/service1.svc?wsdl",
+							$client = new SoapClient("http://122.155.180.88/CustWS/Service1.svc?wsdl",
 								array(
 								  "trace"      => 1,		// enable trace to view what is happening
 								  "exceptions" => 1,		// disable exceptions
