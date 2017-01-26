@@ -111,8 +111,14 @@ if (!is_null($events['events'])) {
 					];
 					break;					
 				default:
-					$codi = 0;
-					break;				
+					//$codi = 0;
+					//break;	
+					// Build message to reply back
+					$messages = [
+						'type' => 'text',
+						'text' => 'พิมพ์อะไรมา? ไม่เข้าใจเลย'
+					];
+					break;					
 			}
 			
 			if($codi==1)
