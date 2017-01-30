@@ -72,7 +72,7 @@ if (!is_null($events['events'])) {
 						{
 						    try {
 								
-							$client = new SoapClient("http://122.155.180.88/CustWS/Service1.svc?wsdl",
+							$client = new SoapClient("http://127.0.0.1/CustWS/Service1.svc?wsdl",
 								array(
 								  "trace"      => 1,		// enable trace to view what is happening
 								  "exceptions" => 1,		// disable exceptions
